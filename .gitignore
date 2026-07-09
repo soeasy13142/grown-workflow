@@ -1,0 +1,18 @@
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Editor noise
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Python / scripts (future)
+__pycache__/
+*.pyc
+.venv/
+
+# Trash
+.trash/
