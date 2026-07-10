@@ -1,6 +1,7 @@
 # 命令：`/ecc:refactor-clean` — 死代码清理
 
-> 本命令基于 ECC（affaan-m/ECC, MIT）的 `/ecc:refactor-clean`。详见 [CREDITS.md](../../../CREDITS.md)。
+> 本命令基于 ECC（affaan-m/ECC, MIT）的 `/ecc:refactor-clean`。
+> 详见 [CREDITS.md](../../../CREDITS.md)。  ✅ v0 · 2026-07-10
 
 ## 何时用
 
@@ -8,30 +9,64 @@
 - 代码中有注释掉的死代码块
 - 需要清理 `console.log` 等调试痕迹
 - 代码异味积累到需要统一清理
+- review 指出需要重构的区域
+
+## 真实示例
+
+**场景：** 一个脚本中发现了多处注释掉的调试代码和未使用的函数。
+
+```
+你： /ecc:refactor-clean
+    帮我清理 .claude/scripts/utils.sh，
+    里面有几处被注释掉的 debug 打印，
+    还有一个 unused function。
+
+ECC： 扫描...
+      ✅ 删除 3 处注释掉的 console.log
+      ⚠️ 函数 `debug_print` 未被调用——确认删除？
+      ✅ 合并 2 个重复的 error handler
+```
+
+**产出物：** `.claude/scripts/utils.sh` — 删除了死代码，函数签名保持不变。
 
 ## 本仓库约定
 
 1. **清理前确认** — 自动清理可能删掉看似死代码但实际需要的逻辑，改动后人工确认
-2. **清理后走 review** — 清理完成后走 `/ecc:code-review`
+2. **清理后走 review** — 清理完走 `/ecc:code-review`
 3. **一次一个意图** — 清理 commit 和功能 commit 分开，不混合
 
-## 用法
+## 边界与陷阱
 
-```
-在对话中直接输入：
-/ecc:refactor-clean
-```
+| 情况 | 处理 |
+|------|------|
+| "死代码"实际是未来需要用的预留逻辑 | 保留并加 `# TODO:` 注释 |
+| 清理改变了外部行为 | 回退，检查测试 |
+| 清理范围太大 | 拆成多次清理，每次 review |
+| ECC 误判（把使用的代码标记为未使用） | 确认后标记为保留 |
 
-ECC 会扫描当前代码范围，标记可清理的死代码。
+## 验证
 
-## 参考
+清理后检查：
 
-CLAUDE.md §5 DON'T 清单：
-- 不写长函数（>50 行）→ 拆
-- 不深度嵌套（>4 层）→ early return
-- 不用 mutation → 改数据返回新对象
-- 不留 console.log / debug 痕迹
+- ✅ 无功能回退（测试通过）
+- ✅ 无残留的 console.log / debug 代码
+- ✅ 清理后的代码满足 CLAUDE.md §5 DON'T 标准（<50 行/函数，<4 层嵌套）
 
----
+## 交叉引用
 
-*v0 — 适配 grown-workflow 的代码清理约定。*
+| 相关命令 | 关系 |
+|---------|------|
+| `/ecc:code-review` | 清理后 review 确认无副作用 |
+| `/ecc:build-fix` | 如果清理破坏了构建 |
+| `/tdd` | 清理前最好有测试覆盖 |
+
+## 已知不足（v0）
+
+- 对于跨模块的死代码引用，ECC 可能无法完整追踪
+- 清理决策最终需要人工判断（尤其是"这看起来没用但我不敢删"的场景）
+- 本仓库当前代码量较小，清理收益有限；此命令在代码量增长后价值更大
+
+## 历史
+
+- 2026-07-10: v0 从 ECC 精选纳入，首次提交（commit `d12eef9`）
+- 2026-07-10: v0 深度升级——加真实示例、边界与陷阱表、验证检查清单、交叉引用
