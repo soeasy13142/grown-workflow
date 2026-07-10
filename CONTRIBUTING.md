@@ -7,3 +7,33 @@ When contributing, please:
 - open an Issue first for new directions or larger refactors
 
 Operating rhythm: small commits, slow pushes, periodic normalization.
+
+
+## Git Push 规范化
+
+本地提交按 `一次一个意图` 的节奏进行（高频、小颗粒）。push 到远端前必须整理 commit 历史：
+
+### 推荐流程
+
+```bash
+# 1. 确认 main 是最新的
+git fetch origin
+git checkout main
+git pull --rebase
+
+# 2. 切到你的功能分支，整理 commit
+git checkout feature/your-branch
+git rebase -i main
+# 把除第一个外的 commit 标记为 squash / fixup
+
+# 3. 推送（首次推送加 -u）
+git push -u origin feature/your-branch
+
+# 或合并到 main（merge 模式任选，建议 fast-forward 或 squash merge）
+```
+
+### 原则
+
+- push 出去的 commit 列表应是一个连贯的「意图批次」，不是本地细粒度 commit 流
+- push 前自查：`git log origin/main..HEAD` 应是可独立检视的几个 commit
+- 如果一个功能分支上本地有 10+ 个 commit，先 rebase 整理，再 push
