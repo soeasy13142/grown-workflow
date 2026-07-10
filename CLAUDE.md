@@ -28,19 +28,20 @@ git rebase -i <base-branch>
 
 ## §2. ECC 命令速查
 
-本项目强制使用 ECC 插件（已在 `.claude/settings.json` 启用 `ecc@ecc`）。
-最常用的 8 个命令：
+本仓库精选了 [ECC](https://github.com/affaan-m/ECC)（Enhanced Claude Capabilities，MIT 许可证）的以下命令作为核心工作流。
+> ECC 由 [affaan m](https://github.com/affaan-m) 开发，本仓库的使用和封装见 `CREDITS.md`。
+> 详细项目本地约定见 `.claude/skills/ecc-workflow/SKILL.md`。
 
-| 命令 | 何时用 |
-|------|--------|
-| `/ecc:plan` | 功能规划与任务拆解 |
-| `/tdd` | TDD 工作流 |
-| `/ecc:code-review` | 代码质量审查 |
-| `/ecc:build-fix` | 修复构建错误 |
-| `/ecc:refactor-clean` | 死代码清理 |
-| `/e2e` | 端到端测试 |
-| `/ecc:test-coverage` | 覆盖率分析 |
-| `/ecc:update-docs` | 文档更新 |
+| 命令 | 何时用 | 项目本地文档 |
+|------|--------|-------------|
+| `/ecc:plan` | 功能规划与任务拆解 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-plan.md) |
+| `/tdd` | TDD 工作流 | [用法 →](.claude/skills/ecc-workflow/commands/tdd.md) |
+| `/ecc:code-review` | 代码质量审查 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-code-review.md) |
+| `/ecc:build-fix` | 修复构建错误 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-build-fix.md) |
+| `/ecc:refactor-clean` | 死代码清理 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-refactor-clean.md) |
+| `/e2e` | 端到端测试 | [用法 →](.claude/skills/ecc-workflow/commands/e2e.md) |
+| `/ecc:test-coverage` | 覆盖率分析 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-test-coverage.md) |
+| `/ecc:update-docs` | 文档更新 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-update-docs.md) |
 
 完整命令清单见 ECC 官方文档：https://github.com/affaan-m/ECC
 
