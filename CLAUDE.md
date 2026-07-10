@@ -68,6 +68,7 @@ git rebase -i <base-branch>
 11. **不可变数据** — update 不 mutate，改写时返回新对象。
 12. **输入边界验证** — 系统边界处用 schema 验证，失败快速失败。
 13. **Secrets 走环境变量** — 不硬编码；启动时校验必需 env 已设置。
+14. **收到 skill 走方法论** — 用户提供任意形态 skill（句子/脚本/描述/workflow）时，按 `docs/methodology.md` 4 阶段流程整理：接收 → 疼痛溯源 → 沉淀 SKILL.md → 跑一次。不预设计，不跳过跑一次。
 
 ## §5. DON'T（不要做的）
 
@@ -112,7 +113,8 @@ git rebase -i <base-branch>
 ## §6. 目录约定
 
 - `.claude/` — Claude Code 配置 + AI 协作产物（plans、skills、scripts、rules）
-- `docs/` — 对外文档（principles、plans）
+- `docs/` — 对外文档（principles、plans、methodology）
+- `docs/methodology.md` — Skill 整理方法论 v0；`.claude/skills/<name>/SKILL.md` 按此整理
 - **仓库根不放 `skills/`、`scripts/`**（已统一到 `.claude/` 下）
 
 ## §7. 与现有 rules 的关系
