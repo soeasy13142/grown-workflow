@@ -1,0 +1,29 @@
+# Review package: aab7e3e..HEAD
+
+## Commits
+4218f81 docs: link README.md to CLAUDE.md
+
+## Files changed
+ README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+## Diff
+diff --git a/README.md b/README.md
+index 9719961..839b4e9 100644
+--- a/README.md
++++ b/README.md
+@@ -48,10 +48,14 @@ v0 的正确姿态：先写一份能用的版本，把已知的不足有意地
+ 
+ 把三件事串成一条链：
+ 
+ > **脚手架先于起步，规范化穿插于推进，工具生长于痛点之后。**
+ 
+ 这不是一份可以照搬的实施计划，它是一条从长跑里观察出来的路径。能遵循它的工作流，几乎都不是一开始就立下的。它们是跑了一段之后，主事的人才看见"原来我早就在这么做"。
+ 
+ 反过来读一遍：不要试图站在原地规划一条完美的协作路径。先把 v0 写出来，让规范化在长跑中自然出现的位置显形，让工具在痛点真的冒头时再沉下去。
+ 
+ 让方法长出来。能被重写的方法，比不会过期的方法，更适合陪伴一段长跑。
++
++## 附：给 AI 协作者的契约
++
++本仓库的 AI 协作主契约在 [`CLAUDE.md`](./CLAUDE.md)。Claude Code 在本仓库内工作时自动加载该文件。涉及决策、git 流程、ECC 命令、DO/DON'T 等协作约定，以 `CLAUDE.md` 为准。

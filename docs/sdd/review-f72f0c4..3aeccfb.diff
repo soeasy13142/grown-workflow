@@ -1,0 +1,17 @@
+# Review package: f72f0c4..HEAD
+
+## Commits
+3aeccfb chore: add .claude/skills/ and .claude/scripts/ scaffolds
+
+## Files changed
+ .claude/scripts/.gitkeep | 0
+ .claude/skills/.gitkeep  | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+## Diff
+diff --git a/.claude/scripts/.gitkeep b/.claude/scripts/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/.claude/skills/.gitkeep b/.claude/skills/.gitkeep
+new file mode 100644
+index 0000000..e69de29

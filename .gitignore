@@ -16,3 +16,13 @@ __pycache__/
 
 # Trash
 .trash/
+
+# no_git — local-only specification docs (STRUCTURE.md + sub-README)
+# These files document project structure & conventions but are intentionally
+# not tracked in git. Move them out of this list to commit.
+/STRUCTURE.md
+/.claude/README.md
+/.claude/rules/
+/docs/README.md
+/docs/sdd/README.md
+/docs/superpowers/README.md

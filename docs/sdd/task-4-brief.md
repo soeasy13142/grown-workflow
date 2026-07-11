@@ -1,3 +1,17 @@
+### Task 4: 新增仓库根 `CLAUDE.md`（AI 协作契约）
+
+**Files:**
+- Create: `CLAUDE.md`
+
+**Interfaces:**
+- Consumes: 无（不依赖前序任务的产出）
+- Produces: 仓库根 CLAUDE.md，Claude Code 自动加载；含 §0-§7 共 8 节
+
+- [ ] **Step 1: 创建 `CLAUDE.md`，完整内容如下**
+
+写入文件 `/Users/charliepan/Downloads/grown-workflow/CLAUDE.md`，内容为：
+
+````markdown
 # CLAUDE.md — grown-workflow AI 协作契约
 
 > 本仓库的 AI 协作主契约。Claude Code 自动加载本文件。
@@ -5,36 +19,7 @@
 
 ## §0. 决策原则（最高优先级）
 
-### 元规则：不确定 → 问，不替用户拍板
-
-**触发**：任何时候遇到下列场景，**立即调用 AskUserQuestion**。一次问 1-4 个相关问题。
-
-**禁止**：
-- 「我假设你要的是 X」然后开干
-- 「我选 A 因为…」直接执行，不等用户确认
-- 把多个不确定点压成一个 silent decision
-- 给「推荐选项」+「(Recommended)」后就跳过询问
-- AI 可以列选项 + 推荐 + 理由，但**最终选择必须由人定**
-
-### §0.1 AskUserQuestion 触发场景（按需对照）
-
-> 下列 8 类场景中只要命中一条，**就问**。不要替用户判断「这个够清楚，可以直接做」——用户视角和 AI 视角不一致是常态。
-
-| # | 场景 | 典型模糊输入 | 应问什么 |
-|---|------|--------------|----------|
-| 1 | **模糊动词/形容词** | 「帮我优化下」「重构一下」「改得更好」 | 优化哪个文件/函数/模块的哪方面？目标指标？ |
-| 2 | **选型决策** | 「用啥库做 X」「哪个方案好」 | 列 ≥2 候选 + 推荐 + 各自理由，让用户挑 |
-| 3 | **阈值与边界** | 「长函数」「大文件」「深嵌套」「复杂」 | 把抽象词换成具体数字选项（如 50 / 80 / 100 行） |
-| 4 | **命名/标识符** | 「这个函数叫啥」「commit message 怎么写」 | 给 ≥2 命名候选 + 推荐，让用户定 |
-| 5 | **范围与粒度** | 「改一下」「修一下 bug」 | 改一行 / 单文件 / 模块 / 全仓库？影响面多大？ |
-| 6 | **风格与偏好** | 「按你想法写」「用合适的方式」 | 错误处理风格、注释密度、不可变程度、测试密度等 |
-| 7 | **优先级/顺序** | 多个候选任务堆在一起 | 先做哪个？并行还是串行？ |
-| 8 | **默认值/缺省行为** | 超时/重试/缓存/边界 fallback | 这种场景下默认行为用 A 还是 B？ |
-
-**判断门槛**：宁可多问一次被嫌烦，也不要少问一次做错方向。「**稍有不清楚**」即触发。
-
----
-
+- **任何不清楚、模糊、不确定、不知道选哪个 → 直接用 AskUserQuestion 问，不要替我做决策。**
 - 复杂任务（跨多文件 / 多阶段 / 跨多日）→ 先写 plan，再实施。
 - 拍板权不可委托：让 AI 替你定方向是反模式。
 
@@ -57,20 +42,19 @@ git rebase -i <base-branch>
 
 ## §2. ECC 命令速查
 
-本仓库精选了 [ECC](https://github.com/affaan-m/ECC)（Enhanced Claude Capabilities，MIT 许可证）的以下命令作为核心工作流。
-> ECC 由 [affaan m](https://github.com/affaan-m) 开发，本仓库的使用和封装见 `CREDITS.md`。
-> 详细项目本地约定见 `.claude/skills/ecc-workflow/SKILL.md`。
+本项目强制使用 ECC 插件（已在 `.claude/settings.json` 启用 `ecc@ecc`）。
+最常用的 8 个命令：
 
-| 命令 | 何时用 | 项目本地文档 |
-|------|--------|-------------|
-| `/ecc:plan` | 功能规划与任务拆解 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-plan.md) |
-| `/tdd` | TDD 工作流 | [用法 →](.claude/skills/ecc-workflow/commands/tdd.md) |
-| `/ecc:code-review` | 代码质量审查 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-code-review.md) |
-| `/ecc:build-fix` | 修复构建错误 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-build-fix.md) |
-| `/ecc:refactor-clean` | 死代码清理 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-refactor-clean.md) |
-| `/e2e` | 端到端测试 | [用法 →](.claude/skills/ecc-workflow/commands/e2e.md) |
-| `/ecc:test-coverage` | 覆盖率分析 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-test-coverage.md) |
-| `/ecc:update-docs` | 文档更新 | [用法 →](.claude/skills/ecc-workflow/commands/ecc-update-docs.md) |
+| 命令 | 何时用 |
+|------|--------|
+| `/ecc:plan` | 功能规划与任务拆解 |
+| `/ecc:tdd` | TDD 工作流 |
+| `/ecc:code-review` | 代码质量审查 |
+| `/ecc:build-fix` | 修复构建错误 |
+| `/ecc:refactor-clean` | 死代码清理 |
+| `/ecc:e2e` | 端到端测试 |
+| `/ecc:test-coverage` | 覆盖率分析 |
+| `/ecc:update-docs` | 文档更新 |
 
 完整命令清单见 ECC 官方文档：https://github.com/affaan-m/ECC
 
@@ -85,7 +69,7 @@ git rebase -i <base-branch>
 
 ## §4. DO（应该做的）
 
-1. **AskUserQuestion 澄清** — 见 §0 元规则与 §0.1 触发场景表。任何需求里有不清楚、模糊、找不到、不知道选哪个的点，直接问。
+1. **用 AskUserQuestion 澄清** — 任何需求里有不清楚、模糊、找不到、不知道选哪个的点，直接问。一次问 1-4 个相关问题。
 2. **复杂任务先写 plan** — 满足 §3 触发条件时，先在 `docs/plans/` 写 plan，实施中持续更新，完成时附回顾。
 3. **本地提交高频、一次一个意图** — 沿用 CONTRIBUTING.md。commit message 写明意图，不混多个意图。
 4. **Push 前先合并** — `git rebase -i` 或 `git merge --squash`，把本地多个细粒度 commit 整理成「意图批次」。
@@ -93,18 +77,17 @@ git rebase -i <base-branch>
 6. **库文档查 Context7** — 涉及具体库/框架/API 时用 Context7 MCP，不走 WebSearch。
 7. **并行任务用并行 Agent** — 独立任务并行调度，不要串行等待。
 8. **改动完成请求 code-review** — 走 `/ecc:code-review` 或 `code-reviewer` Agent。
-9. **测试驱动** — 新功能走 `/tdd`，先写测试再写实现。
+9. **测试驱动** — 新功能走 `/ecc:tdd`，先写测试再写实现。
 10. **错误显式处理** — 不 swallow errors；UI 层用友好消息，服务层记详细上下文。
 11. **不可变数据** — update 不 mutate，改写时返回新对象。
 12. **输入边界验证** — 系统边界处用 schema 验证，失败快速失败。
 13. **Secrets 走环境变量** — 不硬编码；启动时校验必需 env 已设置。
-14. **收到 skill 走方法论** — 用户提供任意形态 skill（句子/脚本/描述/workflow）时，按 `docs/methodology.md` 4 阶段流程整理：接收 → 疼痛溯源 → 沉淀 SKILL.md → 跑一次。不预设计，不跳过跑一次。
 
 ## §5. DON'T（不要做的）
 
 ### 决策类
 
-1. **不要替用户拍板** — 见 §0 元规则。方向性、命名、选型、阈值、边界判断一律 AskUserQuestion。AI 可以列选项 + 推荐，但最终选择由人定。
+1. **不要替我拍板** — 任何方向性、命名、选型、阈值、边界判断，一律 AskUserQuestion。AI 可以列选项 + 推荐，但最终选择由人定。
 2. **不要假设需求** — 含糊的需求先确认，不要「按我理解」开干。「我以为你要的是 X」是协作头号反模式。
 
 ### 流程类
@@ -143,13 +126,41 @@ git rebase -i <base-branch>
 ## §6. 目录约定
 
 - `.claude/` — Claude Code 配置 + AI 协作产物（plans、skills、scripts、rules）
-- `docs/` — 对外文档（principles、plans、methodology、sdd、superpowers specs）
-- `docs/methodology.md` — Skill 整理方法论 v0；`.claude/skills/<name>/SKILL.md` 按此整理
+- `docs/` — 对外文档（principles、plans）
 - **仓库根不放 `skills/`、`scripts/`**（已统一到 `.claude/` 下）
-- **完整结构规范**（含目录命名、文件分类、README 要求、no_git 清单）见 `STRUCTURE.md`（本地文件，no_git，不入 git）。本节仅做要点提示。
 
 ## §7. 与现有 rules 的关系
 
 本文件补充 `~/.claude/rules/` 全局规则之上，**不替代**。
 
 `.claude/rules/common/` 内是通用编码规范补充（coding-style、testing、security 等），详见各文件。
+````
+
+（用 Write 工具创建。文件内容已在上方。）
+
+- [ ] **Step 2: 验证 CLAUDE.md 包含 8 节标题**
+
+```bash
+grep -E "^## §" /Users/charliepan/Downloads/grown-workflow/CLAUDE.md
+```
+
+Expected: 输出 8 行，分别为 `§0.` 到 `§7.`。
+
+- [ ] **Step 3: 验证行数在合理范围**
+
+```bash
+wc -l /Users/charliepan/Downloads/grown-workflow/CLAUDE.md
+```
+
+Expected: 300-450 行。
+
+- [ ] **Step 4: 提交**
+
+```bash
+cd /Users/charliepan/Downloads/grown-workflow
+git add CLAUDE.md
+git commit -m "docs: add CLAUDE.md (AI collaboration contract)"
+```
+
+---
+

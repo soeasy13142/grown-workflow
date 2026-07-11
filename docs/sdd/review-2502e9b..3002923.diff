@@ -1,0 +1,52 @@
+# Review package: 2502e9b..HEAD
+
+## Commits
+3002923 docs: add docs/plans/ with README template
+
+## Files changed
+ docs/plans/.gitkeep  |  0
+ docs/plans/README.md | 31 +++++++++++++++++++++++++++++++
+ 2 files changed, 31 insertions(+)
+
+## Diff
+diff --git a/docs/plans/.gitkeep b/docs/plans/.gitkeep
+new file mode 100644
+index 0000000..e69de29
+diff --git a/docs/plans/README.md b/docs/plans/README.md
+new file mode 100644
+index 0000000..5afe5ac
+--- /dev/null
++++ b/docs/plans/README.md
+@@ -0,0 +1,31 @@
++# Plans
++
++复杂任务的 plan 文档存放处。Plan 是活记录，不是出发前的门票。
++
++## 何时写 plan
++
++满足以下任一条件：
++
++- 跨多文件
++- 多阶段（分析 → 设计 → 实施 → 验证）
++- 跨多日
++- 含架构决策
++- 涉及不熟悉的库 / 框架 / API
++
++## 命名
++
++`YYYY-MM-DD-<topic>.md`，例如 `2026-07-10-claude-md-init.md`。
++
++## 模板
++
++1. 目标（一句话）
++2. 范围（做什么 / 不做什么）
++3. 步骤
++4. 决策记录（实施中改了什么、为什么）
++5. 回顾（完成后）
++
++## 不要做
++
++- 不要把 plan 写进 CLAUDE.md 或其他文件
++- 不要在 plan 之外的地方藏代码片段
++- 不要 plan 与实施脱钩——plan 是活记录，改 plan 是正常的
+\ No newline at end of file

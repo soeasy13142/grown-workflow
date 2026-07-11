@@ -1,0 +1,28 @@
+# Review package: 3aeccfb..HEAD
+
+## Commits
+2502e9b chore: remove root skills/ and scripts/ (consolidated into .claude/)
+
+## Files changed
+ scripts/.gitkeep | 2 --
+ skills/.gitkeep  | 3 ---
+ 2 files changed, 5 deletions(-)
+
+## Diff
+diff --git a/scripts/.gitkeep b/scripts/.gitkeep
+deleted file mode 100644
+index eb6aaa1..0000000
+--- a/scripts/.gitkeep
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# Standalone automation scripts will land here.
+-# Pre-commit hooks, health scanners, alias generators, etc.
+diff --git a/skills/.gitkeep b/skills/.gitkeep
+deleted file mode 100644
+index af072c3..0000000
+--- a/skills/.gitkeep
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# Reusable AI agent skills will land here.
+-# Each skill is a self-contained folder with its own SKILL.md describing
+-# when to invoke it, what it expects as input, and what it produces.
