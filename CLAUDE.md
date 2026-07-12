@@ -148,6 +148,19 @@ git rebase -i <base-branch>
 - **仓库根不放 `skills/`、`scripts/`**（已统一到 `.claude/` 下）
 - **完整结构规范**（含目录命名、文件分类、README 要求、no_git 清单）见 `STRUCTURE.md`（本地文件，no_git，不入 git）。本节仅做要点提示。
 
+### `docs/plans/` 与 `docs/sdd/` 的定位
+
+> 本仓库的核心产出是 `.claude/skills/` 下的 skill 和 `.claude/rules/` 下的工作流规范。
+> `docs/plans/` 和 `docs/sdd/` 是**本仓库自身建设的过程记录**，是方法论（plan 工作流、SDD）实跑的副产品，不属于要分享的核心内容。
+
+| 目录 | 定位 | 是否核心产出 |
+|------|------|------------|
+| `.claude/skills/` | 沉淀的 skill 成果物 | ✅ |
+| `.claude/rules/` | 工作流规范、编码规范 | ✅ |
+| `docs/plans/` | plan 工作流建设本仓库的规划文档 | ❌ 副产品 |
+| `docs/sdd/` | SDD 方法论建设本仓库的过程记录 | ❌ 副产品 |
+| `docs/principles.md`、`docs/methodology.md` | 对外分享的方法论文档 | ✅ 对外 |
+
 ## §7. 与现有 rules 的关系
 
 本文件补充 `~/.claude/rules/` 全局规则之上，**不替代**。
