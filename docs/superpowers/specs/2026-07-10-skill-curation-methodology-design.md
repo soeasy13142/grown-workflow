@@ -54,7 +54,7 @@ README 还给出了：
 
 **动作：** 原样接住，不要求结构化。
 
-**产出：** raw seed（对话里，或暂存在 `.superpowers/skill-curation/<name>-raw.md`）
+**产出：** raw seed（对话里，或暂存在 `docs/curation/<name>-raw.md`）
 
 **不做：**
 - 不要求用户结构化
@@ -81,7 +81,7 @@ README 还给出了：
 
 **关键：** 如果问题 3 选 B，停下来跟用户讨论「这个不该做成 skill」。
 
-**产出：** 痛点笔记（写到 `.superpowers/skill-curation/<name>-pain.md`）
+**产出：** 痛点笔记（写到 `docs/curation/<name>-pain.md`）
 
 ### Stage 3: 沉淀为 SKILL.md
 

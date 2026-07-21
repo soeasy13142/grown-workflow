@@ -31,7 +31,7 @@ $ wc -l /Users/charliepan/Downloads/grown-workflow/CLAUDE.md
 
 ### Byte-for-byte match with brief
 ```
-$ diff <(awk '/^````markdown$/{flag=1;next}/^````$/{flag=0}flag' .superpowers/sdd/task-4-brief.md) CLAUDE.md
+$ diff <(awk '/^````markdown$/{flag=1;next}/^````$/{flag=0}flag' docs/sdd/task-4-brief.md) CLAUDE.md
 (no output)
 ```
 EXACT MATCH.
