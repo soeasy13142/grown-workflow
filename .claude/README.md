@@ -1,86 +1,151 @@
-# 关于本项目 / About This Project
+# grown-workflow
+
+[![GitHub](https://img.shields.io/badge/GitHub-soeasy13142/grown--workflow-181717?logo=github)](https://github.com/soeasy13142/grown-workflow)
+[![License](https://img.shields.io/github/license/soeasy13142/grown-workflow?color=blue)](LICENSE)
+
+[**简体中文**](.claude/README.md) | [English](.claude/README.en.md)
+
+> **让 AI 协作先有脚手架、规范穿插于推进、工具从痛点长出来。**
 
 ---
 
-## 项目本质 / Project Essence
+## 关于本项目
 
-**grown-workflow** 不是一个生产软件产品的项目。它是一个 **元项目（meta-project）**——一套关于"如何结构化 AI 协作"的方法论与工具箱，并且它本身就是自身方法的活体示范。
+grown-workflow 不是一个生产软件产品的项目。它是一个 **元项目（meta-project）**——一套关于"如何结构化 AI 协作"的方法论与工具箱，并且它本身就是自身方法的活体示范。
 
-**grown-workflow** is not a project that produces software. It is a **meta-project** — a methodology and tooling kit for *how to structure AI-augmented collaboration* — and it is itself a living demonstration of its own principles.
+项目的方法论不是先画图纸再施工的，而是从一百多次提交的实践中自己"长出来"的。这段经历被记录成了 [`README.md`](../README.md) 里的文章，而本仓库的结构本身也是这套方法的实证。
 
-核心观察（Core insight）：这个项目不是先画图纸再施工的。它的方法论是从一百多次提交的实践中自己"长出来"的，而这份经历本身被记录成了 `README.md` 里的文章。项目文档与项目实践互为表里。
+### 三个核心母题
 
-> This project was not designed upfront and then built. Its methodology *grew* from 100+ commits of real practice, and that journey was distilled into the essay in `README.md`. The project's documentation and its practice reflect each other.
+| 母题 | 一句话概括 |
+|------|-----------|
+| **脚手架先于项目** | AI 协作契约（CLAUDE.md）从 v0 开始，承认它会被不断重写 |
+| **推进与规范化交替** | 推一段→停一下规范化→再推进；规范化是显式阶段 |
+| **工具从痛点长出来** | 3 次重复信号才沉成工具，工具追着痛点长 |
 
----
-
-## 三个核心母题 / Three Core Themes
-
-项目方法论围绕三条从实践中观察到的路径展开（详见 `README.md`）：
-
-The methodology revolves around three paths observed from practice (see `README.md` for the full essay):
-
-### 一、脚手架先于项目 / Scaffolding Before Project
-
-AI 协作契约（即 `CLAUDE.md`）要在项目早期就建立，从 **v0** 开始，承认它会被不断重写。命名要前向兼容，迁移路径要预留。规则一旦写定就会产生迁移成本——所以第一版必须是 v0，不是 v1。
-
-Write the AI collaboration contract (`CLAUDE.md`) early as **v0**, acknowledging it will be rewritten. Naming must be forward-compatible; migration paths must be预留的. The first version must be v0, not v1 — once a rule is set, changing it incurs migration costs.
-
-### 二、推进与规范化交替 / Progress Alternates with Normalization
-
-工作不是单向推进的。节奏是"推进一段→停下来规范化→再推进"。规范化的不是"顺手打扫卫生"，而是显式阶段——扫描结构漂移、修复命名不一致、整理 tag。要为它争取和推进同等的时间预算与可见度。
-
-Work does not move forward in one direction. The rhythm is: *advance → pause to normalize → advance again*. Normalization is not "tidying up along the way" — it is an explicit phase for scanning structural drift, fixing naming inconsistencies, and整理 tags. It deserves equal time budget and visibility as feature work.
-
-### 三、工具从痛点长出来 / Tools Grow from Pain Points
-
-不要预先架构工具。工具的生命力来自它解决过一次真实的、重复的痛。**3 次重复信号**：一个工作步骤在不同情境下被重复 3 次以上时，才把它沉成工具。工具追着痛点长，痛点追着情境冒。
-
-Do not pre-architect tools. A tool's vitality comes from having solved a real, repeated pain. **The 3-repetition signal**: only formalize a step into a tool after it has been repeated 3+ times in different contexts. Tools chase pain; pain chases context.
+详见 [`README.md`](../README.md) 全文。哲学原理见 [`docs/principles.md`](../docs/principles.md)。
 
 ---
 
-## 产出层文件概览 / Output Layer Overview
+## Skills
 
-| 层面 / Layer | 文件 / File | 作用 / Purpose |
-|-------------|-------------|---------------|
-| **哲学原理** / Philosophy | `docs/principles.md` | 委托边界、计划的本质、可见即信任 / Delegation boundaries, the nature of plans, visibility as trust |
-| **实践方法论** / Practice | `README.md` | 三件主题的操作化叙述 / Operationalized narrative of the three themes |
-| **Skill 沉淀流程** / Skill Curation | `docs/methodology.md` | 4 阶段流程：接收→疼痛溯源→沉淀→跑一次 / 4-stage process: receive → trace pain → formalize → run once |
-| **具体工作流** / Workflow | `.claude/skills/ecc-workflow/SKILL.md` | 8 个精选 ECC 命令的编排与本地约定 / 8 curated ECC commands with local conventions |
-| **协作契约** / Contract | `CLAUDE.md` | 项目的 AI 行为规则与 DO/DON'T / AI behavior rules and DO/DON'T |
+本项目沉淀的 skill 位于 `.claude/skills/<name>/` 目录下，每个 skill 含 SKILL.md 核心文档及附属资料。
 
----
+### ecc-workflow — ECC 精选工作流
 
-## 文件自洽性 / Self-Consistency
+**用途** — 封装 [ECC（Enhanced Claude Capabilities）](https://github.com/affaan-m/ECC) 的 8 个精选命令，附带项目本地约定与编排指南。
 
-项目文档之间高度自洽，方法论的原则在其自身结构中得到了体现：
+**用法** — 按需从场景速查表选取起点命令，可串联为一个完整工作流：
 
-The project's documentation is highly self-consistent — the methodology's principles are reflected in its own structure:
+| 命令 | 用途 |
+|------|------|
+| `/ecc:plan` | 功能规划与任务拆解 |
+| `/tdd` | 测试驱动开发 |
+| `/ecc:code-review` | 代码质量审查 |
+| `/ecc:build-fix` | 修复构建错误 |
+| `/ecc:refactor-clean` | 死代码清理 |
+| `/e2e` | 端到端测试 |
+| `/ecc:test-coverage` | 覆盖率分析 |
+| `/ecc:update-docs` | 文档更新 |
 
-| 原则 / Principle | 实例 / Evidence |
-|-----------------|----------------|
-| 工具从痛点长出来 / Tools grow from pain | `docs/methodology.md` Stage 2 强制问"重复了几次"，3 次信号才沉淀 |
-| 工具替代判断处停下 / Stop at judgment | `docs/methodology.md` Stage 2 问题 3 强制分流：选 B（全是判断）时停下 |
-| v0 正确姿态 / v0 posture | 跑一次后必须写"v0 已知不足"段；不写就是没沉淀完 |
-| 推进与规范化交替 / Alternate phases | `CLAUDE.md` 有明确的 DO/DON'T 和 AskUserQuestion 触发场景表 |
-| 拍板权不可委托 / Decisions not delegated | `docs/principles.md` → `CLAUDE.md` "不确定→问"原则直接对应 |
-| 脚手架先于起步 / Scaffold before start | `CLAUDE.md` 在仓库第 6 次提交时已出现，至今仍在改写 |
+**链接** — [ECC 官方仓库](https://github.com/affaan-m/ECC) · [skill 文档](skills/ecc-workflow/SKILL.md)
 
 ---
 
-## 附录：`.claude/` 目录说明 / Appendix: `.claude/` Directory Guide
+### obsidian-vault-enhance — Obsidian 笔记增强
 
-| 子项 / Item | 职责 / Responsibility |
-|-------------|----------------------|
-| `rules/common/*.md` | 编码规范、测试、安全等通用 rules（与全局 `~/.claude/rules/common/` 同步镜像） / Coding standards, testing, security (mirrored from global `~/.claude/rules/common/`) |
-| `skills/<name>/SKILL.md` | 项目私有 skill，每个 skill 一个目录 / Project-local skills, one directory per skill |
-| `scripts/` | 项目私有脚本（占位） / Project-local scripts (placeholder) |
-| `settings.json` | Claude Code 项目级配置 / Claude Code project-level configuration |
+**用途** — 自动为 Obsidian 笔记补充 Dataview 查询、Mermaid 图表、语义化 Callout、别名、Templater 模板等高级功能。根据笔记所在目录和文件名自动识别类型（HCIP / HCIA / RHEL / Index / Python / General），按类型应用不同套件。
 
-### 维护要点 / Maintenance Notes
+**用法** — 在 Claude Code 中触发后按流程执行：
 
-- **新增 skill**：在 `skills/<name>/` 下放 `SKILL.md`，目录名 kebab-case
-- **新增 rule**：放到 `rules/common/` 下，单文件单主题（如 `error-handling.md`）
-- **Add a skill**: place `SKILL.md` under `skills/<name>/`, directory name in kebab-case
-- **Add a rule**: place in `rules/common/`, one topic per file
+```
+Phase 1: 读取笔记 → 识别类型（按文件夹 + 文件名前缀）
+Phase 2: 理解内容 → 判定可用的增强类型（是否有流程可画图、是否有命令可示例）
+Phase 3: 通用增强（frontmatter + 别名 + fileClass 验证）
+Phase 4: 类型特定增强（摘要 callout / 考点 / Mermaid 拓扑 / Dataview 索引）
+Phase 5: 验证（frontmatter 完整性 + callout + 断链检查）
+```
+
+**链接** — [skill 文档](skills/obsidian-vault-enhance/SKILL.md) · [Mermaid 模板参考](skills/obsidian-vault-enhance/references/mermaid-templates.md) · [Dataview 查询参考](skills/obsidian-vault-enhance/references/dataview-queries.md)
+
+---
+
+## 仓库内容
+
+```
+grown-workflow/
+|
+|-- README.md               # 方法论文章（三个核心母题）
+|-- CLAUDE.md               # AI 协作主契约（项目级行为规范）
+|-- CONTRIBUTING.md         # 贡献指南与 Git 操作规范
+|-- CREDITS.md              # 第三方致谢与许可证
+|-- LICENSE                 # MIT 许可证
+|-- STRUCTURE.md            # 仓库结构说明（已归档）
+|
+|-- .claude/
+|   |-- README.md           # 项目说明（本文档）
+|   |-- README.en.md        # Project description (English)
+|   |-- settings.json       # Claude Code 项目配置
+|   |-- skills/
+|   |   |-- ecc-workflow/           # ECC 精选工作流
+|   |   |   |-- SKILL.md            #   核心文档
+|   |   |   |-- commands/           #   8 个命令详解
+|   |   |       |-- ecc-plan.md
+|   |   |       |-- tdd.md
+|   |   |       |-- ecc-code-review.md
+|   |   |       |-- ecc-build-fix.md
+|   |   |       |-- ecc-refactor-clean.md
+|   |   |       |-- e2e.md
+|   |   |       |-- ecc-test-coverage.md
+|   |   |       |-- ecc-update-docs.md
+|   |   |-- obsidian-vault-enhance/  # Obsidian 笔记增强
+|   |       |-- SKILL.md             #   核心文档
+|   |       |-- references/
+|   |           |-- mermaid-templates.md # Mermaid 图模板参考
+|   |           |-- dataview-queries.md  # Dataview 查询参考
+|   |-- rules/
+|   |   |-- common/               # 通用编码规范（与全局同步）
+|   |       |-- coding-style.md
+|   |       |-- testing.md
+|   |       |-- git-workflow.md
+|   |       |-- code-review.md
+|   |       |-- security.md
+|   |       |-- performance.md
+|   |       |-- patterns.md
+|   |       |-- hooks.md
+|   |       |-- agents.md
+|   |       |-- development-workflow.md
+|   |-- scripts/                   # 项目脚本（占位）
+|
+|-- docs/
+    |-- README.md              # docs/ 目录说明（已归档）
+    |-- principles.md          # 哲学原理
+    |-- methodology.md         # Skill 整理方法论
+    |-- plans/
+    |   |-- README.md          # plans/ 目录说明
+    |   |-- ...plan.md         # 规划记录
+    |-- sdd/
+    |   |-- README.md          # sdd/ 目录说明
+    |   |-- ...                # SDD 过程记录
+    |-- superpowers/
+        |-- README.md          # superpowers/ 目录说明
+```
+
+---
+
+## 如何开始
+
+```bash
+# 确认 ECC 插件已启用（`.claude/settings.json` 中配置）
+cat .claude/settings.json
+
+# 不确定从哪个命令开始？看场景速查表：
+cat .claude/skills/ecc-workflow/SKILL.md | grep "| 你的场景" -A 20
+
+# 浏览 CLAUDE.md 了解项目协约
+cat CLAUDE.md
+```
+
+---
+
+> 本项目遵循"脚手架先于起步、推进与规范化交替、工具从痛点长出来"的演化路径。详见 [`README.md`](../README.md)。
