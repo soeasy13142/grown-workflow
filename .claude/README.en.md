@@ -33,20 +33,7 @@ Project skills live under `.claude/skills/<name>/`. Each skill has a SKILL.md co
 
 ### ecc-workflow — Curated ECC Workflow
 
-**Purpose** — A curated set of 8 commands from [ECC (Enhanced Claude Capabilities)](https://github.com/affaan-m/ECC), wrapped with project-local conventions and an orchestration guide.
-
-**Usage** — Pick a starting command from the scenario table; commands can be chained into a complete workflow:
-
-| Command | Purpose |
-|---------|---------|
-| `/ecc:plan` | Feature planning and task decomposition |
-| `/tdd` | Test-driven development |
-| `/ecc:code-review` | Code quality review |
-| `/ecc:build-fix` | Fix build errors |
-| `/ecc:refactor-clean` | Dead code cleanup |
-| `/e2e` | End-to-end testing |
-| `/ecc:test-coverage` | Coverage analysis |
-| `/ecc:update-docs` | Documentation updates |
+A curated set of ECC (Enhanced Claude Capabilities) commands wrapped with project-local conventions and an orchestration guide. Provides `/ecc:plan`, `/tdd`, `/ecc:code-review`, `/ecc:build-fix`, `/ecc:refactor-clean`, `/e2e`, `/ecc:test-coverage`, `/ecc:update-docs`.
 
 **Links** — [ECC Official Repository](https://github.com/affaan-m/ECC) · [Skill Doc](skills/ecc-workflow/SKILL.md)
 
@@ -54,19 +41,17 @@ Project skills live under `.claude/skills/<name>/`. Each skill has a SKILL.md co
 
 ### obsidian-vault-enhance — Obsidian Note Enhancement
 
-**Purpose** — Automatically enrich Obsidian notes with Dataview queries, Mermaid diagrams, semantic callouts, aliases, Templater templates, and more. Detects note type from its folder and filename prefix (HCIP / HCIA / RHEL / Index / Python / General), then applies type-specific enhancement suites.
-
-**Usage** — Trigger in Claude Code; the skill follows a 5-phase pipeline:
-
-```
-Phase 1: Read note → identify type (by folder + filename prefix)
-Phase 2: Understand content → determine applicable enhancements (flow diagrams? config examples?)
-Phase 3: Universal enhancements (frontmatter + aliases + fileClass validation)
-Phase 4: Type-specific enhancements (abstract callout / exam Q&A / Mermaid topology / Dataview index)
-Phase 5: Verification (frontmatter integrity + callouts + broken link check)
-```
+Automatically enriches Obsidian notes with Dataview queries, Mermaid diagrams, semantic callouts, aliases, and more. Detects note type from folder and filename (HCIP / HCIA / RHEL / Index / Python / General), applies type-specific enhancement suites.
 
 **Links** — [Skill Doc](skills/obsidian-vault-enhance/SKILL.md) · [Mermaid Template Reference](skills/obsidian-vault-enhance/references/mermaid-templates.md) · [Dataview Query Reference](skills/obsidian-vault-enhance/references/dataview-queries.md)
+
+---
+
+### consolidating-docs — Document Consolidation
+
+Normalizes project docs when structural drift occurs: trims CLAUDE.md (≤200 lines), moves CONTRIBUTING.md to root, cleans agent working files from git tracking, fixes stale cross-references.
+
+**Links** — [Skill Doc](skills/consolidating-docs/SKILL.md)
 
 ---
 
@@ -98,8 +83,10 @@ grown-workflow/
 |   |   |       |-- e2e.md
 |   |   |       |-- ecc-test-coverage.md
 |   |   |       |-- ecc-update-docs.md
-|   |   |-- obsidian-vault-enhance/  # Obsidian note enhancement
-|   |       |-- SKILL.md             #   Core document
+|   |   |-- consolidating-docs/        # Document consolidation
+|   |   |   |-- SKILL.md                #   Core document
+|   |   |-- obsidian-vault-enhance/    # Obsidian note enhancement
+|   |       |-- SKILL.md               #   Core document
 |   |       |-- references/
 |   |           |-- mermaid-templates.md # Mermaid diagram templates
 |   |           |-- dataview-queries.md  # Dataview query reference

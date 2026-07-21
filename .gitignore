@@ -14,5 +14,9 @@ __pycache__/
 *.pyc
 .venv/
 
+# Agent working directories (should never be committed)
+.superpowers/
+.claude/worktrees/
+
 # Trash
 .trash/
